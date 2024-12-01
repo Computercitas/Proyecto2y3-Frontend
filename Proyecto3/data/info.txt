@@ -1,0 +1,1 @@
+Tiny dataset tiene 162 imagenes. Como son pocas y de distintos productos, los resultados pueden salir imprecisos

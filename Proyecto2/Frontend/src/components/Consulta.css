@@ -1,0 +1,200 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1f1f1f;
+  color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden; /* Elimina el scroll horizontal */
+}
+
+/* Contenedor principal */
+.Consulta {
+  background-color: #5aa266;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+/* Título */
+.Consulta h1 {
+  font-size: 24px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Input de consulta */
+.Consulta label {
+  font-size: 16px;
+  color: #dddddd;
+  display: block;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.Consulta input[type="text"],
+.Consulta input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #444444;
+  background-color: #2d2d2d;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Contenedor de botones */
+.botones-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+button {
+  background-color: #f6f6f6;
+  color: rgb(31, 29, 29);
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #dade7d;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Tabla de resultados */
+.resultados-container {
+  margin-top: 30px;
+  overflow-y: auto;
+  max-height: 50vh;
+}
+
+.resultados-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #444;
+  color: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.resultados-table th,
+.resultados-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #555;
+}
+
+.resultados-table th {
+  background-color: #555;
+}
+
+.resultados-table tr:nth-child(even) {
+  background-color: #3b3b3b;
+}
+
+.resultados-table tr:hover {
+  background-color: #505050;
+}
+
+.resultados-table button {
+  background-color: #3b82f6;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.resultados-table button:hover {
+  background-color: #2563eb;
+}
+
+/* Modal y overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: #f0f0f0;
+  text-align: left;
+}
+
+.modal h2 {
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+
+.modal p {
+  margin: 10px 0;
+}
+
+.modal button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #3b82f6;
+  border: none;
+  border-radius: 8px;
+  color: #f0f0f0;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.modal button:hover {
+  background-color: #2563eb;
+}
+
+/* Scroll en los detalles de lyrics */
+.lyrics-scroll {
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: #222;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+/* Estilo para el tiempo de ejecución */
+.execution-time {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 8px;
+  text-align: center;
+}
