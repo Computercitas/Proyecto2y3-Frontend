@@ -1,4 +1,4 @@
-## Integración del Frontend de los Proyectos 2 y 3
+# Integración del Frontend de los Proyectos 2 y 3
 
 
 Este repositorio combina las funcionalidades de los Proyectos 2 y 3 en una única aplicación web usando **React**, **Vite** y **TypeScript**. Cada proyecto está implementado como rutas independientes, ofreciendo una navegación fluida entre ellos. A continuación, se describe cómo se estructuró y desarrolló el frontend:
@@ -44,6 +44,67 @@ El puerto general del frontend conjunto es el **5175**, permitiendo centralizar 
 - [Repositorio del Proyecto 2](https://github.com/Dateadores/Proyecto2)
 - [Repositorio del Proyecto 3](https://github.com/Dateadores/Proyecto3)
 
+### 8. **¿Cómo probarlo?**
+
+#### Ejecutar Proyecto 2
+
+Para ejecutar el frontend, primero entrar a la carpeta `Proyecto2`:
+
+```bash
+cd Proyecto2
+```
+
+Luego, utilizar los siguientes comandos en la terminal:
+
+```bash
+npm i
+```
+
+```bash
+npm run dev
+```
+
+#### Ejecutar Proyecto 3
+
+Ahora entramos a la carpeta `Proyecto3`, para esto simplemente abrir otra terminal sin borrar la anterior:
+
+```bash
+cd Proyecto3
+```
+
+Luego, utilizar los siguientes comandos en la terminal:
+
+```bash
+npm i
+```
+
+```bash
+npm run dev
+```
+
+#### Ejecutar la combinación del Frontend
+
+Ahora entramos a la carpeta `frontend-combinado`, para esto simplemente abrir otra terminal sin borrar la anterior:
+
+```bash
+cd fc
+```
+
+y luego:
+
+```bash
+cd frontend-combinado
+```
+
+Luego, utilizar los siguientes comandos en la terminal:
+
+```bash
+npm i
+```
+
+```bash
+npm run dev
+```
 
 ### Autores
 
