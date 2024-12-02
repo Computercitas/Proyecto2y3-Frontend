@@ -1,42 +1,93 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* app.css */
+
+/* Estiliza el contenedor principal */
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url('assets/fondo_ropa.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.content-overlay {
+  background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mejorar legibilidad */
+  padding: 40px;
+  border-radius: 12px;
   text-align: center;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.welcome-title {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.description {
+  color: #d1d1d1;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  line-height: 1.5;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* Botón de Consulta */
+.consulta-button, .github-button {
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin: 10px;
 }
 
-.card {
-  padding: 2em;
+/* Botón de Consulta estilo */
+.consulta-button {
+  background: linear-gradient(45deg, #4c65af, #81a2c7);
+  color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(76, 134, 175, 0.4);
 }
 
-.read-the-docs {
-  color: #888;
+.consulta-button:hover {
+  background: linear-gradient(45deg, #4585a0, #6699bb);
+  box-shadow: 0px 6px 10px rgba(76, 144, 175, 0.6);
+  transform: scale(1.05);
+}
+
+/* Botón de GitHub estilo */
+.github-button {
+  background-color: #333;
+  color: #ffffff;
+  gap: 10px;
+  box-shadow: 0px 4px 8px rgba(51, 51, 51, 0.4);
+}
+
+.github-button:hover {
+  background-color: #555;
+  box-shadow: 0px 6px 10px rgba(51, 51, 51, 0.6);
+  transform: scale(1.05);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Enfoque personalizado */
+.consulta-button:focus, .github-button:focus {
+  outline: 2px solid #498cab;
+  outline-offset: 4px;
 }
