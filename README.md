@@ -1,7 +1,46 @@
-# Frontend del proyecto 2 y proyecto 3 en conjunto
+## Integración del Frontend de los Proyectos 2 y 3
 
-Este es un repositorio del frontend del proyecto 2 y 3 conjunto, mientras el desarrollo completo y los commits de cada proyecto se pueden ver en los siguientes enlaces:
 
+Este repositorio combina las funcionalidades de los Proyectos 2 y 3 en una única aplicación web usando **React**, **Vite** y **TypeScript**. Cada proyecto está implementado como rutas independientes, ofreciendo una navegación fluida entre ellos. A continuación, se describe cómo se estructuró y desarrolló el frontend:
+
+### 1. **Estructura del Proyecto**
+Se definió una arquitectura modular para separar las funcionalidades:
+- **Home:** Una página inicial que permite al usuario navegar hacia los proyectos mediante un diseño limpio e intuitivo.
+- **Proyecto 2:** Implementación de la funcionalidad de búsqueda basada en el índice invertido, mostrando resultados interactivos.
+- **Proyecto 3:** Búsqueda multimedia que permite realizar consultas de imágenes y retorna el top-k de los resultados más parecidos.
+
+### 2. **Uso de React Router**
+Se utilizó **React Router** para gestionar las rutas entre las páginas:
+- `/`: Página principal con opciones para acceder a los proyectos.
+- `/proyecto2`: Ruta que carga el frontend del Proyecto 2 mediante un iframe en el puerto `5174`.
+- `/proyecto3`: Ruta que carga el frontend del Proyecto 3 mediante un iframe en el puerto `5176`.
+
+El puerto general del frontend conjunto es el **5175**, permitiendo centralizar las rutas y funcionalidades.
+
+### 3. **Diseño Interactivo**
+- Se diseñó la página principal con botones estilizados que dirigen a cada proyecto.
+- Se implementó un estilo uniforme utilizando **CSS** personalizado para mantener un diseño profesional.
+- En el Proyecto 3, los resultados se muestran en una tabla interactiva con imágenes y metadatos como la distancia KNN y el tiempo de consulta.
+
+### 4. **Implementación de Funcionalidades**
+#### Proyecto 2
+- El Proyecto 2 se integró mediante un iframe que apunta a su puerto específico (`http://localhost:5174`).
+#### Proyecto 3
+- El Proyecto 3 se integró mediante un iframe que apunta a su puerto específico (`http://localhost:5176`).
+
+### 5. **Ventajas de la Integración**
+- Centraliza el acceso a ambos proyectos en una sola aplicación.
+- Proporciona una experiencia de usuario consistente y profesional.
+- Facilita la navegación y permite la reutilización de componentes comunes.
+
+### 6. **Tecnologías Usadas**
+- **React + Vite:** Para el desarrollo rápido y eficiente del frontend.
+- **TypeScript:** Para un desarrollo más robusto con tipado estático.
+- **CSS:** Para un diseño atractivo y profesional.
+- **React Router:** Para la navegación entre los proyectos.
+
+
+### 7. **Enlaces de cada proyecto**
 - [Repositorio del Proyecto 2](https://github.com/Dateadores/Proyecto2)
 - [Repositorio del Proyecto 3](https://github.com/Dateadores/Proyecto3)
 
