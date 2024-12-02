@@ -5,10 +5,13 @@ import "../App.css";
 const Home = () => {
   return (
     <div className="home-container">
+      {/* Contenedor de la imagen de fondo con el desenfoque */}
+      <div className="background-image"></div>
+
       <div className="content-overlay">
         <h1 className="welcome-title">Welcome!</h1>
         <p className="description">
-        Discover and query the world of music on Spotify. Use our inverted index and select your preferred indexing method to perform free-text queries.
+        Discover and query the world of e-commerce products. Use our multidimensional index and select your preferred indexing and search method to perform queries by uploading a product image.
         </p>
         <div className="button-container">
           <Link to="/consulta">

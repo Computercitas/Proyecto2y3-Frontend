@@ -1,21 +1,38 @@
-/* app.css */
+/* Estilos para el body y html para eliminar scroll */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Elimina los scrolls */
+}
 
 /* Estiliza el contenedor principal */
 .home-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-image: url('assets/fondo_ropa.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  height: 104vh; /* Ocupa toda la altura de la ventana */
+  width: 104vw; /* Ocupa toda la anchura de la ventana */
   position: relative;
 }
 
+/* Contenedor de la imagen de fondo con desenfoque */
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('assets/f1.jpg');
+  background-size: cover; /* Hace que la imagen cubra todo el espacio */
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(5px); /* Solo la imagen se desenfoca */
+  z-index: -1; /* Asegura que la imagen esté detrás del contenido */
+}
+
 .content-overlay {
-  background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mejorar legibilidad */
+  background: rgba(0, 0, 0, 0.5); /* Fondo oscuro para mejorar la legibilidad */
   padding: 40px;
   border-radius: 12px;
   text-align: center;
@@ -23,6 +40,9 @@
   width: 90%;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
+
+
+
 
 .welcome-title {
   color: #ffffff;
@@ -54,8 +74,8 @@
 
 /* Botón de Consulta estilo */
 .consulta-button {
-  background: linear-gradient(45deg, #4c65af, #81a2c7);
-  color: #ffffff;
+  background: linear-gradient(45deg, #617faa, #56708f);
+  color: #fff3f3;
   box-shadow: 0px 4px 8px rgba(76, 134, 175, 0.4);
 }
 
@@ -67,8 +87,8 @@
 
 /* Botón de GitHub estilo */
 .github-button {
-  background-color: #333;
-  color: #ffffff;
+  background-color: #d0cfc2;
+  color: #413f3f;
   gap: 10px;
   box-shadow: 0px 4px 8px rgba(51, 51, 51, 0.4);
 }

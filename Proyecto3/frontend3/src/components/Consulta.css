@@ -1,118 +1,140 @@
+/* General */
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-  }
-  
-  .Consulta {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .header {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
-  .header h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #2c3e50;
-  }
-  
-  .header p {
-    font-size: 16px;
-    color: #7f8c8d;
-  }
-  
-  .consulta-formulario {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  
-  label {
-    font-weight: bold;
-    color: #34495e;
-  }
-  
-  input,
-  select {
-    padding: 10px;
-    font-size: 14px;
-    border: 1px solid #dcdde1;
-    border-radius: 4px;
-    outline: none;
-    background: #f7f9fc;
-  }
-  
-  input:focus,
-  select:focus {
-    border-color: #3498db;
-  }
-  
-  .btn-buscar {
-    padding: 12px 20px;
-    font-size: 16px;
-    color: #fff;
-    background: #3498db;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn-buscar:hover {
-    background: #2980b9;
-  }
-  
-  .resultados {
-    margin-top: 30px;
-  }
-  
-  .query-time {
-    font-size: 14px;
-    margin-bottom: 20px;
-    color: #7f8c8d;
-  }
-  
-  .resultados-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-  
-  .resultado-item {
-    background: #fff;
-    border: 1px solid #eaeaea;
-    border-radius: 8px;
-    padding: 15px;
-    width: 200px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  }
-  
-  .resultado-imagen {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-  }
-  
-  .resultado-item p {
-    margin: 10px 0;
-    font-size: 14px;
-    color: #333;
-  }
-  
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #1c1c1c; /* Fondo oscuro (casi negro) */
+  color: #e0e0e0; /* Texto claro (gris muy suave) */
+}
+
+/* Contenedor principal de la consulta */
+.Consulta {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #2d2d2d; /* Fondo gris oscuro para contraste */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+  border: 1px solid #3e3e3e; /* Borde gris más claro */
+}
+
+/* Estilo del encabezado */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #ffffff; /* Título blanco */
+}
+
+.header p {
+  font-size: 16px;
+  color: #b2b2b2; /* Subtítulo gris claro */
+}
+
+/* Formulario */
+.consulta-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-weight: 600;
+  color: #cccccc; /* Etiquetas de texto claro */
+}
+
+/* Estilos de los inputs y selects */
+input, select {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #4e4e4e; /* Borde gris oscuro */
+  border-radius: 8px;
+  outline: none;
+  background: #3a3a3a; /* Fondo gris medio */
+  color: #f1f1f1; /* Texto claro */
+  transition: border-color 0.3s ease;
+}
+
+/* Estilo para el focus de los inputs */
+input:focus, select:focus {
+  border-color: #3498db; /* Azul celeste brillante al enfocarse */
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.6); /* Sombra azul suave */
+}
+
+/* Botón de búsqueda con tamaño manual */
+.btn-buscar {
+  width: 200px;  /* Ancho manual */
+  height: 46px;  /* Alto manual */
+  font-size: 18px;
+  color: #ffffff;
+  background: #3498db; /* Azul celeste */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-buscar:hover {
+  background: #2980b9; /* Azul más oscuro al pasar el cursor */
+  transform: scale(1.05); /* Efecto de zoom */
+}
+
+.btn-buscar:active {
+  transform: scale(0.98); /* Efecto de presionar */
+}
+
+/* Sección de resultados */
+.resultados {
+  margin-top: 30px;
+}
+
+.query-time {
+  font-size: 14px;
+  margin-bottom: 20px;
+  color: #7f8c8d; /* Gris suave para el texto */
+}
+
+.resultados-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.resultado-item {
+  background: #333333; /* Fondo gris oscuro para los elementos */
+  border: 1px solid #444444; /* Borde gris más claro */
+  border-radius: 12px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  transition: transform 0.2s ease;
+}
+
+.resultado-item:hover {
+  transform: translateY(-5px); /* Efecto al pasar el ratón */
+}
+
+.resultado-imagen {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para las imágenes */
+}
+
+.resultado-item p {
+  margin: 12px 0;
+  font-size: 15px;
+  color: #e0e0e0; /* Texto claro dentro de los resultados */
+  line-height: 1.5;
+}
