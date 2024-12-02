@@ -1,0 +1,19 @@
+/* index.css */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.App {
+  height: 100%; /* Asegura que el contenedor principal ocupe toda la pantalla */
+  display: flex;
+  flex-direction: column;
+}
+
+iframe {
+  display: block; /* Evita espacio adicional debajo del iframe */
+  width: 100%;
+  height: 100%;
+}
