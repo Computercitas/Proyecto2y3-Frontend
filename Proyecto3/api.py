@@ -9,10 +9,11 @@ import requests
 from io import BytesIO
 import os
 import faiss
+import json
 
 # Importar los métodos KNN
 from KNN_HighD import knn_highd
-from KNNS import knn_secuencial
+from KNNS import knn_s
 from KNN_RTree.knn_rtree import Rtree
 
 # Importar los métodos KNN
@@ -80,6 +81,11 @@ CORS(app)  # Permitir CORS para solicitudes desde cualquier origen
 output_dir = "C:/Users/Public/bd2/Proyecto2y3-Frontend/Proyecto3/Extraccion/features15k"
 descriptors, mapping = funcs.load_features(output_dir)
 
+# Cargar el archivo image_mapping.json
+json_path = "C:/Users/Public/bd2/Proyecto2y3-Frontend/Proyecto3/Extraccion/features15k/image_mapping.json"
+with open(json_path, 'r') as f:
+    image_mapping = json.load(f)
+
 # Método para ejecutar el KNN seleccionado
 def execute_knn(query_vector, k, method="KNN-HighD"):
     start_time = time.time()
@@ -91,7 +97,7 @@ def execute_knn(query_vector, k, method="KNN-HighD"):
         rtree_instance = Rtree(descriptors, _dimension=44)
         results = rtree_instance.knn_rtree(query_vector, k=k)
     elif method == "KNN-Secuencial":
-        results = knn_secuencial.knn_sequential(query_vector, descriptors, k=k)
+        results = knn_s.knn_sequential(query_vector, descriptors, k=k)
     else:
         raise ValueError(f"Método KNN no reconocido: {method}")
 
@@ -130,21 +136,24 @@ def search_knn():
         k = int(data.get('k', 8))  # Número de vecinos K
         knn_method = data.get('knn_method', 'KNN-HighD')  # Método KNN a usar
 
-
         # Ejecutar el KNN seleccionado
         results, query_time = execute_knn(query_vector, k, method=knn_method)
-        # Convertir los resultados a tipos básicos
-        results = [(float(idx), float(dist)) for idx, dist in results]
 
-        # Ejecutar el KNN seleccionado
-        results, query_time = execute_knn(query_vector, k, method=knn_method)
+        detailed_results = []
+        for idx, dist in results:
+            result_info = image_mapping.get(str(idx), {})
+            detailed_results.append({
+                'index': int(idx),
+                'distance': float(dist),
+                'filename': result_info.get('filename', 'Desconocido')
+            })
 
         # Preparar la respuesta
         return jsonify({
             'method': knn_method,
             'query_time': query_time,
             'random_idx': random_idx,
-            'results': results
+            'results': detailed_results#results
         })
 
     except Exception as e:
