@@ -41,8 +41,8 @@ El puerto general del frontend conjunto es el **5175**, permitiendo centralizar 
 
 
 ### 7. **Enlaces de cada proyecto**
-- [Repositorio del Proyecto 2](https://github.com/Dateadores/Proyecto2)
-- [Repositorio del Proyecto 3](https://github.com/Dateadores/Proyecto3)
+- [Repositorio del Proyecto 2](https://github.com/Computercitas/Proyecto2)
+- [Repositorio del Proyecto 3](https://github.com/Computercitas/Proyecto3)
 
 ### 8. **¿Cómo probarlo?**
 
