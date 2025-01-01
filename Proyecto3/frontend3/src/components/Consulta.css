@@ -4,6 +4,8 @@ body {
   font-family: 'Arial', sans-serif;
   background-color: #1c1c1c; /* Fondo oscuro (casi negro) */
   color: #e0e0e0; /* Texto claro (gris muy suave) */
+  overflow-y: auto;  /* Permite el desplazamiento vertical */
+  height: 100%;  /* Asegura que el cuerpo ocupe todo el alto de la ventana */
 }
 
 /* Contenedor principal de la consulta */
@@ -95,6 +97,9 @@ input:focus, select:focus {
 /* Sección de resultados */
 .resultados {
   margin-top: 30px;
+  max-height: 500px;  /* Ajusta la altura máxima según sea necesario */
+  overflow-y: auto;   /* Permite el scroll vertical */
+  padding-right: 10px; /* Para evitar que el contenido se oculte debajo de la barra de desplazamiento */
 }
 
 .query-time {
@@ -138,3 +143,41 @@ input:focus, select:focus {
   color: #e0e0e0; /* Texto claro dentro de los resultados */
   line-height: 1.5;
 }
+
+
+/* Estilos de los botones de selección de método KNN */
+.metodo-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.metodo-buttons button {
+  padding: 12px 24px;
+  background-color: #4CAF50;  /* Verde para los botones */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Estilo para el botón activo */
+.metodo-buttons button.active {
+  background-color: #45a049;  /* Verde más oscuro cuando el botón está activo */
+  font-weight: bold;  /* Negrita para resaltar el botón activo */
+  color: black;  /* Letra negra cuando el botón está activo */
+}
+
+/* Efecto al pasar el cursor */
+.metodo-buttons button:hover {
+  background-color: #3e8e41;  /* Verde más oscuro al pasar el cursor */
+  transform: scale(1.05);  /* Efecto de zoom */
+}
+
+/* Efecto al presionar el botón */
+.metodo-buttons button:active {
+  transform: scale(0.98);  /* Efecto de presionar */
+}
+

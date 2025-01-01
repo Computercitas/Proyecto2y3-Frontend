@@ -2,38 +2,37 @@ import React, { useState } from 'react';
 import './Consulta.css';
 
 interface Resultado {
-  numero_imagen: number;
-  descripcion: string;
-  dist: number;
+  index: number;
+  filename: string;
+  distance: number;
+  link: string;  // Nuevo campo para el link de la imagen
 }
 
 const Consulta: React.FC = () => {
-  const [imagen, setImagen] = useState<File | null>(null);
-  const [metodo, setMetodo] = useState<string>('knn_secuencial');
-  const [k, setK] = useState<number>(5);
-  const [resultados, setResultados] = useState<Resultado[]>([]);
+  const [descriptor, setDescriptor] = useState<number>();  // Número de descriptor
+  const [metodo, setMetodo] = useState<string>();  // Método KNN
+  const [k, setK] = useState<number>(8);  // Número de vecinos
+  const [resultados, setResultados] = useState<Resultado[]>([]);  
   const [queryTime, setQueryTime] = useState<number | null>(null);
 
-  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files && event.target.files[0]) {
-      setImagen(event.target.files[0]);
-    }
-  };
-
   const ejecutarConsulta = () => {
-    if (!imagen) {
-      alert('Por favor, sube una imagen para realizar la consulta.');
+    if (descriptor === null || descriptor === undefined) {
+      alert('Por favor, ingresa un número de descriptor de imagen válido.');
       return;
     }
 
-    const formData = new FormData();
-    formData.append('imagen', imagen);
-    formData.append('metodo', metodo);
-    formData.append('k', k.toString());
+    const data = {
+      random_idx: descriptor,
+      k: k,
+      knn_method: metodo,
+    };
 
-    fetch('http://localhost:5000/search', {
+    fetch('http://localhost:5000/search/knn', {
       method: 'POST',
-      body: formData,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
     })
       .then((response) => response.json())
       .then((data) => {
@@ -51,26 +50,39 @@ const Consulta: React.FC = () => {
       </div>
       <div className="consulta-formulario">
         <div className="form-group">
-          <label htmlFor="imagen">Sube tu imagen:</label>
+          <label htmlFor="descriptor">Número de Descriptor de Imagen:</label>
           <input
-            type="file"
-            id="imagen"
-            accept="image/*"
-            onChange={handleImageUpload}
+            type="number"
+            id="descriptor"
+            value={descriptor}
+            onChange={(e) => setDescriptor(Number(e.target.value))}
           />
         </div>
+
         <div className="form-group">
-          <label htmlFor="metodo">Método de búsqueda:</label>
-          <select
-            id="metodo"
-            value={metodo}
-            onChange={(e) => setMetodo(e.target.value)}
-          >
-            <option value="knn_secuencial">KNN Secuencial</option>
-            <option value="knn_rtree">KNN RTree</option>
-            <option value="knn_highd">KNN HighD</option>
-          </select>
+          <label>Método KNN:</label>
+          <div className="metodo-buttons">
+            <button
+              onClick={() => setMetodo('KNN-Secuencial')}
+              className={metodo === 'KNN-Secuencial' ? 'active' : ''}
+            >
+              KNN Secuencial
+            </button>
+            <button
+              onClick={() => setMetodo('KNN-RTree')}
+              className={metodo === 'KNN-RTree' ? 'active' : ''}
+            >
+              KNN RTree
+            </button>
+            <button
+              onClick={() => setMetodo('KNN-HighD')}
+              className={metodo === 'KNN-HighD' ? 'active' : ''}
+            >
+              KNN HighD
+            </button>
+          </div>
         </div>
+
         <div className="form-group">
           <label htmlFor="k">Top-K resultados:</label>
           <input
@@ -81,10 +93,12 @@ const Consulta: React.FC = () => {
             onChange={(e) => setK(Number(e.target.value))}
           />
         </div>
+        
         <button className="btn-buscar" onClick={ejecutarConsulta}>
           Buscar
         </button>
       </div>
+
       <div className="resultados">
         {queryTime !== null && (
           <p className="query-time">
@@ -96,12 +110,13 @@ const Consulta: React.FC = () => {
             {resultados.map((resultado, index) => (
               <div key={index} className="resultado-item">
                 <img
-                  src={resultado.descripcion}
-                  alt={`Imagen ${resultado.numero_imagen}`}
+                  src={resultado.link}  // Usar el link de la imagen
+                  alt={`Imagen ${resultado.index}`}
                   className="resultado-imagen"
                 />
-                <p><strong>Número de Imagen:</strong> {resultado.numero_imagen}</p>
-                <p><strong>Distancia:</strong> {resultado.dist.toFixed(3)}</p>
+                <p><strong>Número de Imagen:</strong> {resultado.index}</p>
+                <p><strong>Nombre de Archivo:</strong> {resultado.filename}</p>
+                <p><strong>Distancia:</strong> {resultado.distance.toFixed(3)}</p>
               </div>
             ))}
           </div>

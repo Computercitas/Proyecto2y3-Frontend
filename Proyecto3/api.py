@@ -145,7 +145,8 @@ def search_knn():
             detailed_results.append({
                 'index': int(idx),
                 'distance': float(dist),
-                'filename': result_info.get('filename', 'Desconocido')
+                'filename': result_info.get('filename', 'Desconocido'),
+                'link': result_info.get('link', 'Desconocido')
             })
 
         # Preparar la respuesta
